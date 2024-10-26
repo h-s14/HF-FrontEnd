@@ -34,6 +34,6 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 3000:80\
+          docker run -d -p 5500:80\
            --name reactjs-app-container \
           hs14/healthflow-reactjs
