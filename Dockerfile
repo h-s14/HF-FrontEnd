@@ -1,8 +1,8 @@
 # Build stage
 FROM node:alpine3.18 as build
 
-ARG VITE_BASE_SERVER_BASE_URL
-ENV VITE_BASE_SERVER_BASE_URL=$VITE_BASE_SERVER_BASE_URL
+ARG VITE_BK_URL
+ENV VITE_BK_URL=$VITE_BK_URL
 
 # Set working directory and install dependencies
 WORKDIR /app

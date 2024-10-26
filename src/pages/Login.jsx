@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_SERVER_BASE_URL}/api/v1/user/login`,
+        `${import.meta.env.VITE_BK_URL}/api/v1/user/login`,
         { email, password, confirmPassword, role: "Patient" },
         {
           withCredentials: true,
