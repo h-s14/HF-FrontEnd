@@ -3,6 +3,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const MessageForm = () => {
+  const url = import.meta.env.VITE_BK_URL;
+  const port = import.meta.env.VITE_PORT;
+  const uri = `http://${url}:${port}/api/v1/user/message/send`;
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +17,7 @@ const MessageForm = () => {
     try {
       await axios
         .post(
-          `${import.meta.env.VITE_BK_URL}/api/v1/message/send`,
+          `${uri}`,
           { firstName, lastName, phone, email, message },
           {
             withCredentials: true,

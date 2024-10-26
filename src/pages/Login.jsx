@@ -6,6 +6,10 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Login = () => {
+  const url = import.meta.env.VITE_BK_URL;
+  const port = import.meta.env.VITE_PORT;
+  const uri = `http://${url}:${port}/api/v1/user/login`;
+
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BK_URL}/api/v1/user/login`,
+        `${uri}`,
         { email, password, confirmPassword, role: "Patient" },
         {
           withCredentials: true,

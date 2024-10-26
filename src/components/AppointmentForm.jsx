@@ -7,6 +7,11 @@ import { Calendar, ChevronDown } from "lucide-react";
 import { Context } from "../main";
 
 const AppointmentForm = () => {
+  const url = import.meta.env.VITE_BK_URL;
+  const port = import.meta.env.VITE_PORT;
+  const uriap = `http://${url}:${port}/api/v1/user/appointment/post`;
+  const uridoc = `http://${url}:${port}/api/v1/user/doctors`;
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -54,10 +59,7 @@ const AppointmentForm = () => {
 
   useEffect(() => {
     const fetchDoctors = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_BK_URL}/api/v1/user/doctors`,
-        { withCredentials: true },
-      );
+      const { data } = await axios.get(`${uridoc}`, { withCredentials: true });
       setDoctors(data.doctors);
     };
     fetchDoctors();
@@ -68,7 +70,7 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        `${import.meta.env.VITE_BK_URL}/api/v1/appointment/post`,
+        `${uriap}`,
         {
           firstName,
           lastName,

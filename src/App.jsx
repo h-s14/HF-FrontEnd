@@ -18,19 +18,22 @@ import Login from "./pages/Login";
 import Footer from "./components/Footer";
 
 const App = () => {
+  const url = import.meta.env.VITE_BK_URL;
+  const port = import.meta.env.VITE_PORT;
+  const uri = `http://${url}:${port}/api/v1/user/patient/me`;
+
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
-  const url = import.meta.env.VITE_BK_URL;
-  const port = import.meta.env.VITE_PORT;
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://${url}${port}/api/v1/user/patient/me`,
+          `${uri}`,
+          // `http://${url}:${port}/api/v1/user/patient/me`,
           // `http://"localhost:4000/api/v1/user/patient/me`,
           { withCredentials: true },
         );

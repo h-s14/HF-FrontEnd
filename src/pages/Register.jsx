@@ -4,6 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 const Register = () => {
+  const url = import.meta.env.VITE_BK_URL;
+  const port = import.meta.env.VITE_PORT;
+  const uri = `http://${url}:${port}/api/v1/user/patient/register`;
+
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,7 +25,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BK_URL}/api/v1/user/patient/register`,
+        `${uri}`,
         {
           firstName,
           lastName,
