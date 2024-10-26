@@ -2,7 +2,9 @@
 FROM node:alpine3.18 as build
 
 ARG VITE_BK_URL
+ARG VITE_PORT
 ENV VITE_BK_URL=$VITE_BK_URL
+ENV VITE_PORT=$VITE_PORT
 
 # Set working directory and install dependencies
 WORKDIR /app
