@@ -23,12 +23,13 @@ const App = () => {
     setDarkMode(!darkMode);
   };
 
+  const backendUrl = import.meta.env.VITE_BK_URL;
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_BK_URL}/api/v1/user/patient/me`,
+          `${backendUrl}/api/v1/user/patient/me`,
           // `http://localhost:4000/api/v1/user/patient/me`,
           { withCredentials: true },
         );
