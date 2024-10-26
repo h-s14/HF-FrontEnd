@@ -16,9 +16,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker Image
-        run: |
-          docker build -t hs14/healthflow-reactjs \
-          --build-arg VITE_BASE_SERVER_BASE_URL=${{ secrets.VITE_BASE_SERVER_BASE_URL }} .
+        run: docker build -t hs14/healthflow-reactjs --build-arg VITE_BASE_SERVER_BASE_URL=`${{ secrets.VITE_BASE_SERVER_BASE_URL }}` .
 
       - name: Publish Image to Docker Hub
         run: docker push hs14/healthflow-reactjs:latest
