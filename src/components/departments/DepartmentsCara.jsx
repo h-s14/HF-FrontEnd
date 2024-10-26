@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowTopRight } from "react-icons/rx";
-import { ServiceData } from "./constants.js";
+import { ServiceData } from "./Constants.js";
 
 const DepartmentsCara = () => {
   return (
