@@ -9,19 +9,23 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 import { RxArrowTopRight } from "react-icons/rx";
-import { ServiceData } from "./constants";
+import { ServiceData } from "./constants.js";
 
 const DepartmentsCara = () => {
   return (
-    <div className="mx-24 flex flex-col items-center rounded-3xl border-gray-100 bg-gray-900 bg-opacity-10 backdrop-blur-md backdrop-filter">
+    <div className="mx-24 flex flex-col items-center rounded-3xl border-gray-100 bg-red-900 bg-opacity-10 backdrop-blur-md backdrop-filter">
       <Swiper
         breakpoints={{
           340: {
             slidesPerView: 2,
             spaceBetween: 15,
           },
-          700: {
+          1024: {
             slidesPerView: 3,
+            spaceBetween: 0,
+          },
+          1440: {
+            slidesPerView: 4,
             spaceBetween: 0,
           },
         }}
